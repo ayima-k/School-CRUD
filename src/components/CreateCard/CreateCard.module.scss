@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 85vh;
   width: 210%;
   @media (max-width: 1024px) {
@@ -10,7 +11,7 @@
   @media (max-width: 425px) {
     width: 100%;
     height: 0;
-    margin-top: -10rem;
+    margin-top: -13rem;
   }
   form{
     width: 500px;
@@ -24,6 +25,9 @@
     gap: 20px;
     @media (max-width: 768px) {
       width: 298px;
+    }
+    @media (max-width: 320px) {
+      width: 245px;
     }
     .error{
       color: red;
@@ -58,6 +62,7 @@
       margin: 0 auto;
       font-size: 16px;
       cursor: pointer;
+      transition: .3s;
       &:hover{
         background-color: rgb(32, 62, 155);
       }

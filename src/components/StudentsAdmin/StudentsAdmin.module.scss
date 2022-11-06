@@ -1,0 +1,70 @@
+.emptyBlock{
+  margin-left: 50%;
+  margin-top: 10rem;
+  width: 100%;
+  @media (max-width: 1024px) {
+    margin-left: 10%;
+  }
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 6rem;
+  }
+  @media (max-width: 425px) {
+    margin-top: -30rem;
+  }
+}
+.root{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 1rem;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .card{
+    .btns{
+      display: flex;
+      justify-content: space-between;
+      button{
+        width: 47%;
+        background-color: #AAD09F;
+        color: red;
+        border: 1px solid rgba(82, 78, 78, 0.469);
+        margin-top: 5px;
+        padding: 10px 0;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .3s;
+      }
+      .edit{
+        color: goldenrod;
+        &:hover{
+          background-color: goldenrod;
+          color: #fff;
+        }
+        &:focus{
+          background-color: rgb(189, 151, 56);
+          color: #fff;
+        }
+      }
+      .delete{
+        &:hover{
+          background-color: red;
+          color: #fff;
+        }
+        &:focus{
+          background-color: rgb(199, 38, 38);
+          color: #fff;
+        }
+      }
+    }
+  }
+}

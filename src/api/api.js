@@ -18,15 +18,6 @@ export const API = {
       }
     }).then(r => r.json())
   },
-  patch: (url, data) => {
-    return fetch(`${BASE_URL}${url}.json`, {
-      method: 'PATCH',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-type' : 'application/json'
-      }
-    }).then(r => r.json())
-  },
   put: (url, data) => {
     return fetch(`${BASE_URL}${url}.json`, {
       method: 'PUT',

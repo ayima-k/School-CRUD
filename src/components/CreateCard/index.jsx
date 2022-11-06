@@ -1,18 +1,30 @@
 import React from 'react';
 import { useForm } from 'react-hook-form'
 import { BsCheck } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom';
 import { createStudent } from '../../api/index'
+import Loader from '../Loader';
 import cls from './CreateCard.module.scss'
 
 const CreateCard = () => {
   const { register, handleSubmit, formState: { isValid } } = useForm()
+  const [loading, setLoading] = React.useState(false)
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
+    setLoading(true)
+
     createStudent(data)
+    .then(() => navigate('/'))
+    .finally(() => setLoading(false))
   };
+
 
   return (
     <div className={cls.main}>
+      {  
+        loading ? <Loader/> : ''
+      }
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className={cls.textField}
@@ -56,9 +68,9 @@ const CreateCard = () => {
         <input
           className={cls.textField}
           type="number"
-          name='class'
+          name='class_'
           placeholder="Class"
-          {...register('class', {
+          {...register('class_', {
             required: true,
             maxLength: 2,
           })}
@@ -77,8 +89,9 @@ const CreateCard = () => {
             <option name='d' value="d">D</option>name='a' 
           </select>
         </div>
-        {isValid && <p style={{color: 'green', textAlign: 'center'}}>Успешно <BsCheck/></p>}
-        <button disabled={!isValid} type="submit">Submit</button>
+        {!isValid && <p style={{color: 'red', textAlign: 'center'}}>Fill in all fields correctly!</p>}
+        {isValid && <p style={{color: 'green', textAlign: 'center'}}>Success <BsCheck/></p>}
+        <button disabled={!isValid} type="submit" >Submit</button>
       </form>
     </div>
   );

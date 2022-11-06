@@ -40,4 +40,17 @@
       }
     }
   }
+  .root{
+    .text{
+      font-weight: 400;
+      text-align: center;
+      margin-top: 5rem;
+      font-size: 30px;
+      margin-left: 10rem;
+      @media (max-width: 425px) {
+        margin-top: -27rem;
+        margin-left: 10px;
+      }
+    }
+  }
 }

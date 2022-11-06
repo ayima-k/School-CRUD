@@ -1,0 +1,14 @@
+.root{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 1rem;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
